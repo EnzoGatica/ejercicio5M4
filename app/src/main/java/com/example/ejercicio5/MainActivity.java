@@ -17,16 +17,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initListeners();
+
+
+
+
+    }
+
+    private void initListeners(){
         textresultado = findViewById(R.id.textresultado);
         Button btntoast = findViewById(R.id.btntoast);
-        Button btncound = findViewById(R.id.btntoast);
+        Button btncound = findViewById(R.id.btncount);
 
         btntoast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getBaseContext(), "Apretaste Toast", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Hello Toast!", Toast.LENGTH_SHORT).show();
             }
         });
 
+        btncound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Integer cont = Integer.parseInt(textresultado.getText().toString());
+                cont ++;
+                textresultado.setText(cont.toString());
+            }
+        });
     }
 }
